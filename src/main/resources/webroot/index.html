@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroSpringBoot</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        h1 { color: #2c7be5; }
+        .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin: 12px 0; }
+        a { color: #2c7be5; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; }
+        img { max-width: 100%; border-radius: 8px; margin-top: 10px; }
+        .badge { background: #2c7be5; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+    </style>
+</head>
+<body>
+<h1> MicroSpringBoot IoC Framework</h1>
+<p>A minimal Java web framework demonstrating <strong>reflection-based IoC</strong>.</p>
+
+<div class="card">
+    <h3>Dynamic Routes <span class="badge">@RestController</span></h3>
+    <ul>
+        <li><a href="/">/</a> — Home (FirstWebService)</li>
+        <li><a href="/hello">/hello</a> — Hello (FirstWebService)</li>
+        <li><a href="/greeting?name=TDSE">/greeting?name=TDSE</a> — Greeting with @RequestParam</li>
+        <li><a href="/pi">/pi</a> — Math PI value</li>
+        <li><a href="/square?n=7">/square?n=7</a> — Square of a number</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Static Files <span class="badge">PNG + HTML</span></h3>
+    <p>This page is a static HTML file served from <code>webroot/</code>.</p>
+
+    <img src="/OIP.png" alt="MicroSpringBoot logo" width="120"/>
+
+</div>
+
+<div class="card">
+    <h3>How it works</h3>
+    <ol>
+        <li>Framework scans classpath for <code>@RestController</code> classes</li>
+        <li>Instantiates them using <code>Class.newInstance()</code></li>
+        <li>Registers <code>@GetMapping</code> methods as HTTP routes</li>
+        <li>Resolves <code>@RequestParam</code> at request time via reflection</li>
+    </ol>
+</div>
+</body>
+</html>
